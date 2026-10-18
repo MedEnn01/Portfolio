@@ -625,11 +625,11 @@ window.PORTFOLIO = {
       "year": "2026",
       "featured": false,
       "title": {
-        "fr": "Support Help Desk N2 – Appui aux équipes N1",
-        "en": "L2 Help Desk Support – Assisting the L1 Teams"
+        "fr": "Support Help Desk",
+        "en": "Help Desk Support"
       },
       "summary": {
-        "fr": "Support de niveau 2 pour les clients professionnels de Paritel France : appui aux équipes N1 et résolution des incidents réseau escaladés.",
+        "fr": "Support de niveau 1 et 2 pour les clients professionnels de Paritel France : résolution des incidents réseau escaladés.",
         "en": "Level-2 support for Paritel France's business customers: assisting the L1 teams and resolving escalated network incidents."
       },
       "client": {
