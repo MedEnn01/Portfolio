@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://medenn01.github.io/Portfolio/sitemap.xml
+Sitemap: https://ennouaim.com/sitemap.xml
