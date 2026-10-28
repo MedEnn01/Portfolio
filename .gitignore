@@ -1,0 +1,20 @@
+# système
+.DS_Store
+Thumbs.db
+desktop.ini
+# éditeurs
+.vscode/
+.idea/
+# secrets : ne jamais les versionner
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+# dépendances / sorties
+node_modules/
+*.log
+*.tmp

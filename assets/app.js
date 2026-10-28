@@ -1,3 +1,4 @@
+if (window.top !== window.self) { document.documentElement.style.display = 'none'; try { window.top.location.replace(window.self.location.href); } catch (e) {} }
 /* ==========================================================
    PORTFOLIO — Mohammed Ennouaim · modèle 4 « GesTop »
    Rendu complet depuis assets/data.js (window.PORTFOLIO).
@@ -10,34 +11,36 @@
 
   var UI = {
     fr: {
-      skip: 'Aller au contenu', home: 'Accueil', about: 'À propos', services: 'Services', work: 'Projets', journey: 'Parcours',
-      skills: 'Compétences', contact: 'Contact', menu: 'Menu', close: 'Fermer', theme: 'Thème', language: 'Langue',
+      skip: 'Aller au contenu', home: 'Accueil', about: 'À propos', services: 'Expertise', work: 'Projets', journey: 'Parcours',
+      skills: 'Compétences', proof: 'Preuves', proofTitle: 'Preuves & profils', proofSub: 'Pratique offensive, code et certifications : tout est vérifiable en un clic.', contact: 'Contact', menu: 'Menu', close: 'Fermer', theme: 'Thème', language: 'Langue',
       hello: 'Bonjour, je suis', seeWork: 'Voir mes projets', hire: 'Me contacter', downloadCv: 'Télécharger le CV', cvFr: 'CV français', cvEn: 'CV anglais',
       aboutTitle: 'Qui suis-je ?', based: 'Localisation', degree: 'Diplôme', email: 'Email', phone: 'Téléphone', website: 'Site web', freelance: 'Freelance', available: 'Disponible',
-      servicesTitle: 'Ce que je peux faire pour vous', servicesSub: "De l'audit à la mise en production : sécurité, réseaux et développement.",
-      workTitle: "Projets réalisés", workSub: 'Une sélection de {n} projets freelance livrés entre 2022 et 2026.', caseStudy: "Voir l'étude de cas", searchProjects: 'Rechercher un projet…', noResult: 'Aucun projet ne correspond.',
+      servicesTitle: 'Mes domaines d\'expertise', seeAll: 'Voir tous les projets ({n})', seeLess: 'Réduire la liste', certFile: 'Certificat', toAdd: 'à ajouter', method: 'Méthodologie', methodTodo: 'À compléter : périmètre, méthode (OWASP / PTES / ISO 27005), constats et correctifs.', certPlanned: 'En préparation', pgp: 'Clé PGP', interests: 'Centres d’intérêt', botLabel: 'Je ne suis pas un robot', botBy: 'Protégé par Turnstile', dropTitle: 'Glissez un fichier ici ou cliquez pour parcourir', dropHint: 'PDF, PNG, JPG, TXT ou DOCX · 2 Mo max', dropAria: 'Joindre un fichier', dropRemove: 'Retirer le fichier', dropDemo: 'La pièce jointe est active avec le formulaire sécurisé (voir backend/README.md).', errFileType: 'Fichier non autorisé (PDF, PNG, JPG, TXT ou DOCX uniquement).', errFileSize: 'Fichier trop volumineux (2 Mo maximum).', formNoteSecure: 'Message envoyé directement à ma boîte mail. Protégé par Cloudflare Turnstile.', tsTodo: 'Vérification anti-robot (Turnstile) — à configurer', sending: 'Envoi en cours…', sentOk: 'Message envoyé. Merci, je vous réponds rapidement.', errName: 'Indiquez votre nom.', errEmail: 'Indiquez une adresse e-mail valide pour que je puisse vous répondre.', errMsg: 'Votre message est trop court (10 caractères minimum).', errCaptcha: 'Cochez d’abord la vérification « je ne suis pas un robot ».', errCaptcha2: 'La vérification anti-robot a échoué. Réessayez.', errRate: 'Trop de messages envoyés. Réessayez plus tard ou écrivez à {mail}.', errSend: 'Envoi impossible pour le moment. Écrivez-moi à {mail}.', servicesSub: "De l'audit à la mise en production : sécurité, réseaux et développement.",
+      workTitle: "Projets réalisés", workSub: 'Une sélection de {n} projets et expériences réalisés entre 2022 et 2026.', caseStudy: "Voir l'étude de cas", searchProjects: 'Rechercher un projet…', noResult: 'Aucun projet ne correspond.',
       journeyTitle: 'Mon parcours', job: 'Expérience professionnelle', internship: 'Stages', education: 'Formation', current: 'En poste',
       skillsTitle: 'Compétences & certifications', proficiency: 'Niveau de maîtrise', certs: 'Certifications', languages: 'Langues',
       contactTitle: 'Travaillons ensemble', name: 'Votre nom', yourEmail: 'Votre email', subject: 'Sujet', message: 'Votre message', send: 'Envoyer le message', formNote: "Le message s'ouvre dans votre messagerie.",
-      copy: 'Copier', copied: 'Copié ✓', rights: 'Tous droits réservés.', poweredBy: 'Freelance avec', iconsCredit: 'Icônes : Solar par 480 Design (CC BY 4.0)',
+      copy: 'Copier', copied: 'Copié ✓', rights: 'Tous droits réservés.', poweredBy: 'Freelance avec',
       overview: 'Présentation', context: 'Contexte', did: "Ce que j'ai réalisé", results: 'Livrables & résultats', client: 'Client / contexte', period: 'Période', role: 'Mon rôle', type: 'Type', stack: 'Compétences & outils',
-      certExp: 'Expire', certId: 'ID', certAll: 'Voir les {n} certifications', certLess: 'Réduire',
+      replyTime: 'Réponse sous 24 à 48 h', replyLangs: 'Français · English · العربية', followMe: 'Me suivre',
+      certExp: 'Expire', proofs: 'Liens & preuves', verify: 'Vérifier', credlyAll: 'Voir sur Credly', certId: 'ID', certAll: 'Voir les {n} certifications', certLess: 'Réduire',
       cvTitle: 'Mon CV complet', cvText: 'Toutes mes expériences, certifications et compétences sur une page, prêtes à télécharger.', focusOn: 'Domaines clés',
       prev: 'Projet précédent', next: 'Projet suivant', similar: 'Vous avez un projet similaire ?', letsTalk: 'Parlons-en', toTop: 'Haut de page'
     },
     en: {
-      skip: 'Skip to content', home: 'Home', about: 'About', services: 'Services', work: 'Projects', journey: 'Resume',
-      skills: 'Skills', contact: 'Contact', menu: 'Menu', close: 'Close', theme: 'Theme', language: 'Language',
+      skip: 'Skip to content', home: 'Home', about: 'About', services: 'Expertise', work: 'Projects', journey: 'Resume',
+      skills: 'Skills', proof: 'Proof', proofTitle: 'Proof & profiles', proofSub: 'Offensive practice, code and certifications: everything is one click away.', contact: 'Contact', menu: 'Menu', close: 'Close', theme: 'Theme', language: 'Language',
       hello: "Hi, I'm", seeWork: 'See my projects', hire: 'Contact me', downloadCv: 'Download resume', cvFr: 'French resume', cvEn: 'English resume',
       aboutTitle: 'Who am I?', based: 'Location', degree: 'Degree', email: 'Email', phone: 'Phone', website: 'Website', freelance: 'Freelance', available: 'Available',
-      servicesTitle: 'What I can do for you', servicesSub: 'From audit to production: security, networks and development.',
-      workTitle: 'Delivered projects', workSub: 'A selection of {n} freelance projects delivered between 2022 and 2026.', caseStudy: 'View case study', searchProjects: 'Search a project…', noResult: 'No project matches.',
+      servicesTitle: 'My areas of expertise', seeAll: 'View all projects ({n})', seeLess: 'Show less', certFile: 'Certificate', toAdd: 'to add', method: 'Methodology', methodTodo: 'To complete: scope, method (OWASP / PTES / ISO 27005), findings and fixes.', certPlanned: 'In preparation', pgp: 'PGP key', interests: 'Interests', botLabel: 'I am not a robot', botBy: 'Protected by Turnstile', dropTitle: 'Drop a file here or click to browse', dropHint: 'PDF, PNG, JPG, TXT or DOCX · 2 MB max', dropAria: 'Attach a file', dropRemove: 'Remove file', dropDemo: 'Attachments work with the secure form (see backend/README.md).', errFileType: 'File not allowed (PDF, PNG, JPG, TXT or DOCX only).', errFileSize: 'File too large (2 MB maximum).', formNoteSecure: 'Your message goes straight to my inbox. Protected by Cloudflare Turnstile.', tsTodo: 'Anti-bot check (Turnstile) — to configure', sending: 'Sending…', sentOk: 'Message sent. Thank you, I will reply soon.', errName: 'Please enter your name.', errEmail: 'Please enter a valid email address so I can reply.', errMsg: 'Your message is too short (10 characters minimum).', errCaptcha: 'Please tick the “I am not a robot” check first.', errCaptcha2: 'The anti-bot check failed. Please try again.', errRate: 'Too many messages sent. Try again later or write to {mail}.', errSend: 'Sending is not possible right now. Please write to {mail}.', servicesSub: 'From audit to production: security, networks and development.',
+      workTitle: 'Delivered projects', workSub: 'A selection of {n} projects and experiences delivered between 2022 and 2026.', caseStudy: 'View case study', searchProjects: 'Search a project…', noResult: 'No project matches.',
       journeyTitle: 'My journey', job: 'Professional experience', internship: 'Internships', education: 'Education', current: 'Current',
       skillsTitle: 'Skills & certifications', proficiency: 'Proficiency', certs: 'Certifications', languages: 'Languages',
       contactTitle: "Let's work together", name: 'Your name', yourEmail: 'Your email', subject: 'Subject', message: 'Your message', send: 'Send message', formNote: 'Your message opens in your email app.',
-      copy: 'Copy', copied: 'Copied ✓', rights: 'All rights reserved.', poweredBy: 'Freelancing with', iconsCredit: 'Icons: Solar by 480 Design (CC BY 4.0)',
+      copy: 'Copy', copied: 'Copied ✓', rights: 'All rights reserved.', poweredBy: 'Freelancing with',
       overview: 'Overview', context: 'Context', did: 'What I did', results: 'Deliverables & results', client: 'Client / context', period: 'Period', role: 'My role', type: 'Type', stack: 'Skills & tools',
-      certExp: 'Expires', certId: 'ID', certAll: 'Show all {n} certifications', certLess: 'Show less',
+      replyTime: 'Reply within 24–48 h', replyLangs: 'Français · English · العربية', followMe: 'Follow me',
+      certExp: 'Expires', proofs: 'Links & proof', verify: 'Verify', credlyAll: 'View on Credly', certId: 'ID', certAll: 'Show all {n} certifications', certLess: 'Show less',
       cvTitle: 'My full resume', cvText: 'All my experience, certifications and skills on one page, ready to download.', focusOn: 'Key areas',
       prev: 'Previous project', next: 'Next project', similar: 'Have a similar project?', letsTalk: "Let's talk", toTop: 'Back to top'
     }
@@ -49,12 +52,25 @@
     linkedin: '<path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/>',
     x: '<path fill="currentColor" d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77L17.75 3zm-1.08 16.2h1.7L7.4 4.73H5.58l11.09 14.47z"/>',
     facebook: '<path fill="currentColor" d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.87.25-1.46 1.5-1.46h1.6V4.46A21 21 0 0 0 14.3 4.3c-2.3 0-3.8 1.4-3.8 3.96v2.24H8v3h2.5V21h3z"/>',
-    instagram: '<g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/>'
+    instagram: '<g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/>',
+    github: '<path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>',
+    credly: '<path fill="currentColor" d="M23.8 13.154a.299.299 0 0 0-.101-.024.407.407 0 0 0-.202.048c-.06.028-.092.08-.127.136-.087.128-.15.268-.226.4-.107.187-.246.351-.38.515-.135.156-.286.291-.424.44-.028.027-.072.043-.107.027-.028-.016-.036-.056-.032-.088.04-.38.075-.763.123-1.138.02-.172.043-.336.063-.512.028-.247.056-.487.087-.735l.234-1.824c.02-.128.032-.372-.135-.52a.446.446 0 0 0-.233-.116.46.46 0 0 0-.254.06c-.226.16-.297.504-.365.76-.142.603-.178 1.241-.471 1.804a1.772 1.772 0 0 1-.202.316.668.668 0 0 1-.186.18.332.332 0 0 1-.246.051.365.365 0 0 1-.238-.207.871.87 0 0 1-.063-.324 4.499 4.499 0 0 1 .24-1.585c.045-.132.089-.252.104-.383.028-.156.028-.38-.114-.516-.131-.128-.337-.18-.504-.128-.194.056-.31.244-.372.392-.198.463-.25.95-.317 1.446-.044.327-.127.64-.293.926a2.717 2.717 0 0 1-.603.72c-.118.087-.222.123-.328.107a.376.376 0 0 1-.278-.208.875.875 0 0 1-.095-.315 3.361 3.36 0 0 1-.036-.616c.004-.223 0-.44.044-.658.075-.39.678-1.937.808-2.345.135-.407.262-.823.353-1.246.08-.38.123-.767.11-1.15-.007-.277-.07-.576-.288-.736a.611.61 0 0 0-.603-.048.968.968 0 0 0-.455.428 2.53 2.53 0 0 0-.226.59 12.01 12.01 0 0 0-.266 1.29c-.071.429-.138.848-.206 1.268-.06.355-.206 1.614-.261 1.88-.06.272-.175.54-.301.787-.131.268-.258.536-.408.791a.694.694 0 0 1-.175.224c-.08.06-.182.088-.27.048-.102-.048-.146-.176-.166-.292-.075-.435-.012-.875.072-1.302.083-.431.44-2.4.519-2.851.099-.532.24-1.05.285-1.59.028-.388.09-.88-.202-1.187-.115-.136-.31-.16-.44-.136-.174.036-.31.176-.388.296-.1.128-.186.28-.258.467-.115.284-.186.615-.261.91l-.032.129c-.083.383-.143.77-.186 1.162a16.95 16.948 0 0 0-.06.632c-.008.1-.016.203-.027.307 0 .08.007.168-.028.244a.304.304 0 0 1-.052.068c-.08.072-.202.06-.31.056-.557-.016-1.045.3-1.35.755-.18.252-.281.542-.39.834-.01.048-.034.1-.054.152-.051.143-.13.327-.222.511a3.037 3.037 0 0 1-.317.46 3.285 3.285 0 0 1-.384.41 1.123 1.123 0 0 1-.515.26c-.174.04-.384-.043-.543-.203a.916.916 0 0 1-.206-.54c-.004-.055-.004-.115.028-.163.05-.068.146-.072.23-.076a1.623 1.623 0 0 0 1.375-1.015c.138-.34.178-.698.122-1.046a1.193 1.193 0 0 0-.19-.48.9.9 0 0 0-.396-.323c-.293-.14-.658-.127-1.01.004-.575.232-.951.74-1.134 1.562l-.02.088c-.114.487-.23 1-.582 1.354-.127.12-.261.163-.368.143-.044-.004-.08-.04-.103-.075-.096-.16.003-.532.15-1a4.1 4.1 0 0 0 .1-.366.925.925 0 0 0-.108-.495.783.783 0 0 0-.372-.324c-.143-.064-.31-.06-.468-.06h-.047c-.044 0-.103 0-.151-.012a.215.215 0 0 1-.147-.127.485.485 0 0 1 .016-.232c.004-.02.012-.048.016-.072a.368.368 0 0 0-.162-.412.509.509 0 0 0-.468-.036.768.768 0 0 0-.364.348.769.769 0 0 0-.103.48c.04.13.07.32.043.475-.055.28-.222.51-.384.74-.04.05-.072.106-.107.16a4.96 4.96 0 0 1-.706.825c-.372.335-.804.575-1.232.67-.745.165-1.506-.06-1.91-.734-.222-.38-.32-.827-.348-1.266a5.425 5.425 0 0 1 .424-2.516c.328-.76.816-1.52 1.715-1.614.353-.04.753.083.912.4.115.23.075.506 0 .75-.072.244-.175.49-.18.75-.003.26.124.54.37.616.238.072.495-.08.634-.29.138-.21.186-.46.245-.704a6.282 6.281 0 0 1 .662-1.634c.139-.236.297-.488.254-.76a.543.543 0 0 0-.373-.415.543.543 0 0 0-.535.144c-.134.148-.206.371-.387.43-.17.06-.35-.055-.507-.134-.6-.32-1.336-.312-1.963-.048-.634.25-1.146.735-1.526 1.294C.462 8.53.098 9.508.022 10.48c-.027.34-.031.695 0 1.038.036.46.1.854.214 1.206.139.423.317.79.547 1.094.266.34.587.6.94.747.372.148.784.22 1.192.208a3.172 3.172 0 0 0 1.177-.283 4.29 4.29 0 0 0 1.026-.68c.309-.26.594-.559.84-.89.162-.224.309-.46.44-.708a4.83 4.83 0 0 0 .178-.383c.044-.104.087-.215.202-.26.056-.043.15-.02.202.013.064.04.115.075.135.135.048.116.02.232-.004.332v.012c-.028.1-.055.203-.091.303-.14.424-.238.811-.16 1.195.045.207.128.387.25.527a.84.84 0 0 0 .504.264c.246.04.51-.028.725-.132.143-.068.278-.156.397-.26.06-.06.122-.12.174-.184.044-.06.087-.147.178-.143a.15.15 0 0 1 .107.064c.028.031.04.071.06.115.23.52.776.84 1.335.84h.07c.27 0 .556-.093.79-.22.27-.14.48-.348.7-.552.02-.016.045-.04.073-.044.035-.008.07.012.099.044a.26.26 0 0 1 .047.1c.135.34.46.6.824.66a1.1 1.1 0 0 0 .99-.356c.056-.06.104-.128.167-.176.064-.044.15-.076.222-.044.107.04.135.164.182.268.107.235.357.371.615.375.289 0 .554-.148.764-.34.195-.183.353-.399.516-.61a.328.328 0 0 1 .106-.096c.04-.024.096-.028.13 0 .033.024.045.06.06.091.163.4.587.652 1.01.648.417-.004.809-.224 1.103-.516.095-.092.194-.2.32-.21.14-.017.207.114.254.22.072.142.115.238.25.338.158.116.36.152.547.1.17-.04.34-.156.47-.316.072-.088.112-.204.19-.284.092-.087.132.028.136.1.016.116.016.236.008.352-.016.236-.052.471-.08.703-.011.068-.02.136-.063.188-.06.068-.166.08-.253.064a2.898 2.898 0 0 0-.321-.028l-.14-.016c-.201-.012-.4-.036-.61-.044h-.185c-.404 0-.733.048-1.03.16-.48.187-.852.57-1.003 1.018a1.305 1.305 0 0 0-.052.64c.04.203.13.403.282.587.265.315.68.515 1.149.543.408.02.852-.064 1.292-.26.848-.367 1.482-1.094 1.696-1.95 0-.02.01-.039.023-.043.298-.104.57-.248.813-.428.245-.187.467-.399.65-.643.09-.12.174-.243.253-.37.07-.125.13-.257.202-.38a.906.906 0 0 0 .13-.316.411.411 0 0 0-.05-.328.257.257 0 0 0-.135-.124m-13.68-1.63c.017-.071.045-.14.06-.206a1.9 1.9 0 0 1 .262-.504c.04-.048.08-.1.135-.136a.246.246 0 0 1 .186-.048c.107.02.183.128.202.236.032.18-.04.396-.114.555a1.097 1.097 0 0 1-.31.415c-.06.044-.114.088-.178.116-.028.008-.063.028-.115.028h-.016c-.055 0-.114-.028-.126-.088a.827.827 0 0 1 .015-.367m4.308-.184c-.004.072-.024.148-.028.223a4.91 4.91 0 0 0 0 .779c.012.152.047.3-.016.444a1.069 1.069 0 0 1-.567.643.555.555 0 0 1-.245.056c-.02 0-.04-.004-.06-.004-.12 0-.214-.092-.265-.18a.871.87 0 0 1-.1-.272 2.129 2.129 0 0 1 .072-1.122c.08-.22.202-.435.38-.594a.874.874 0 0 1 .563-.24.31.31 0 0 1 .206.064c.04.044.06.104.056.164a.05.05 0 0 1 .004.04m6.43 4.653c-.015.044-.06.104-.08.14-.042.08-.102.163-.161.235a2.562 2.562 0 0 1-.317.304c-.238.18-.503.311-.777.387a2.025 2.025 0 0 1-.487.072h-.04a.795.795 0 0 1-.515-.18.433.433 0 0 1-.158-.25.537.537 0 0 1 .047-.305.776.776 0 0 1 .38-.383c.326-.16.682-.176 1.019-.16.139.004.265.012.4.02.107.004.218.012.325.024.056 0 .115.004.17.012.044.004.092-.004.135.008.06.004.068.036.06.076"/>',
+    hackerone: '<path fill="currentColor" d="M7.207 0c-.4836 0-.8774.1018-1.1823.3002-.3044.2003-.4592.4627-.4592.7798v21.809c0 .2766.1581.5277.4752.7609.315.2335.7031.3501 1.1664.3501.4427 0 .8306-.1166 1.1678-.3501.3352-.231.5058-.4843.5058-.761V1.0815c0-.319-.1623-.5769-.4893-.7813C8.0644.1018 7.6702 0 7.207 0zm9.5234 8.662c-.4836 0-.8717.0981-1.1683.3007l-4.439 2.7822c-.1988.1861-.2841.4687-.2473.855.0342.3826.2108.747.5238 1.0907.3145.346.6662.5626 1.0684.6547.3963.0899.6973.041.8962-.143l1.7551-1.0951v9.7817c0 .2767.1522.5278.4607.761.3007.2335.6873.3501 1.1504.3501.463 0 .863-.1166 1.1983-.3501.3371-.2332.5058-.4843.5058-.761V9.7381c0-.3193-.165-.577-.4898-.7754-.3252-.2026-.7288-.3007-1.2143-.3007z"/>',
+    tryhackme: '<path fill="currentColor" d="M10.705 0C7.54 0 4.902 2.285 4.349 5.291a4.525 4.525 0 0 0-4.107 4.5 4.525 4.525 0 0 0 4.52 4.52h6.761a.625.625 0 1 0 0-1.25H4.761a3.273 3.273 0 0 1-3.27-3.27A3.273 3.273 0 0 1 6.59 7.08a.625.625 0 0 0 .7-1.035 4.488 4.488 0 0 0-1.68-.69 5.223 5.223 0 0 1 5.096-4.104 5.221 5.221 0 0 1 5.174 4.57 4.489 4.489 0 0 0-.488.305.625.625 0 1 0 .731 1.013 3.245 3.245 0 0 1 1.912-.616 3.278 3.278 0 0 1 3.203 2.61.625.625 0 0 0 1.225-.251 4.533 4.533 0 0 0-4.428-3.61 4.54 4.54 0 0 0-.958.105C16.556 2.328 13.9 0 10.705 0zm5.192 10.64a.925.925 0 0 0-.462.108.913.913 0 0 0-.313.29 1.27 1.27 0 0 0-.175.427 2.39 2.39 0 0 0-.054.514c0 .181.018.353.054.517.036.164.095.307.175.43a.899.899 0 0 0 .313.297c.127.073.281.11.462.11.18 0 .334-.037.46-.11a.897.897 0 0 0 .309-.296c.08-.124.137-.267.173-.431.036-.164.054-.336.054-.517 0-.18-.018-.352-.054-.514a1.271 1.271 0 0 0-.173-.426.901.901 0 0 0-.309-.291.917.917 0 0 0-.46-.108zm6.486 0a.925.925 0 0 0-.462.108.913.913 0 0 0-.313.29 1.27 1.27 0 0 0-.175.427 2.39 2.39 0 0 0-.053.514c0 .181.017.353.053.517.036.164.095.307.175.43a.899.899 0 0 0 .313.297c.127.073.281.11.462.11.18 0 .334-.037.46-.11a.897.897 0 0 0 .31-.296c.078-.124.136-.267.172-.431.036-.164.054-.336.054-.517 0-.18-.018-.352-.054-.514a1.271 1.271 0 0 0-.173-.426.901.901 0 0 0-.308-.291.916.916 0 0 0-.461-.108zm-8.537.068l-.84.618.313.43.476-.368v1.877h.603v-2.557zm6.486 0l-.841.618.314.43.477-.368v1.877h.603v-2.557zm-4.435.445c.08 0 .143.028.193.084.05.057.087.127.114.21.026.083.044.173.054.269a2.541 2.541 0 0 1 0 .533c-.01.097-.028.187-.054.27a.584.584 0 0 1-.114.21.243.243 0 0 1-.193.085.248.248 0 0 1-.195-.086.584.584 0 0 1-.118-.209 1.245 1.245 0 0 1-.056-.27 2.645 2.645 0 0 1 0-.533c.01-.096.029-.186.056-.27a.583.583 0 0 1 .118-.209.25.25 0 0 1 .195-.084zm6.486 0c.08 0 .144.028.193.084.05.057.087.127.114.21.027.083.044.173.054.269a2.541 2.541 0 0 1 0 .533c-.01.097-.027.187-.054.27a.584.584 0 0 1-.114.21.243.243 0 0 1-.193.085.249.249 0 0 1-.195-.086.581.581 0 0 1-.117-.209 1.245 1.245 0 0 1-.056-.27 2.642 2.642 0 0 1 0-.533c.01-.096.028-.186.056-.27a.58.58 0 0 1 .117-.209.25.25 0 0 1 .195-.084zm-2.191 3.51a.93.93 0 0 0-.463.109.908.908 0 0 0-.312.291c-.08.122-.139.263-.175.426a2.383 2.383 0 0 0-.054.514c0 .18.018.353.054.516.036.164.094.308.175.432a.91.91 0 0 0 .312.296.92.92 0 0 0 .463.11c.18 0 .333-.037.46-.11a.892.892 0 0 0 .308-.296 1.32 1.32 0 0 0 .174-.432c.036-.163.054-.335.054-.516 0-.18-.018-.352-.054-.514a1.274 1.274 0 0 0-.174-.426.89.89 0 0 0-.309-.291.918.918 0 0 0-.46-.108zm-6.402.07l-.841.617.314.43.476-.369v1.878h.604v-2.557zm2.125 0l-.841.617.314.43.477-.369v1.878h.603v-2.557zm2.116 0l-.84.617.313.43.477-.369v1.878h.603v-2.557zm2.16.443c.08 0 .144.028.194.085a.605.605 0 0 1 .114.21c.026.083.044.172.053.269a2.639 2.639 0 0 1 0 .532 1.28 1.28 0 0 1-.053.27.585.585 0 0 1-.114.21.244.244 0 0 1-.193.085.25.25 0 0 1-.196-.085.589.589 0 0 1-.117-.21 1.245 1.245 0 0 1-.056-.27 2.597 2.597 0 0 1 0-.532c.01-.097.028-.186.056-.27a.589.589 0 0 1 .117-.209.249.249 0 0 1 .196-.085zm-6.729 3.073a.676.676 0 0 0-.335.078.661.661 0 0 0-.227.211.91.91 0 0 0-.127.31c-.027.118-.04.242-.04.373s.013.256.04.375a.93.93 0 0 0 .127.313.65.65 0 0 0 .227.215c.092.053.204.08.335.08a.655.655 0 0 0 .334-.08.65.65 0 0 0 .225-.215c.057-.09.1-.194.125-.313a1.75 1.75 0 0 0 .04-.375c0-.13-.014-.255-.04-.373a.931.931 0 0 0-.125-.31.658.658 0 0 0-.225-.21.667.667 0 0 0-.334-.08zm3.086 0a.675.675 0 0 0-.336.078.661.661 0 0 0-.226.211.907.907 0 0 0-.127.31 1.69 1.69 0 0 0-.04.373c0 .131.013.256.04.375a.928.928 0 0 0 .127.313c.058.09.134.162.226.215.093.053.205.08.336.08a.655.655 0 0 0 .334-.08.65.65 0 0 0 .224-.215c.058-.09.1-.194.126-.313a1.752 1.752 0 0 0 0-.748.94.94 0 0 0-.126-.31.657.657 0 0 0-.224-.21.667.667 0 0 0-.334-.08zm5.108 0a.675.675 0 0 0-.336.078.661.661 0 0 0-.226.211.91.91 0 0 0-.127.31c-.027.118-.04.242-.04.373s.013.256.04.375a.931.931 0 0 0 .127.313c.058.09.134.162.226.215.093.053.205.08.336.08.13 0 .243-.027.334-.08a.65.65 0 0 0 .224-.215c.058-.09.1-.194.126-.313a1.75 1.75 0 0 0 .04-.375c0-.13-.014-.255-.04-.373a.943.943 0 0 0-.126-.31.657.657 0 0 0-.224-.21.668.668 0 0 0-.334-.08zm-6.658.05l-.61.448.227.311.346-.266v1.362h.438v-1.856zm3.068 0l-.61.448.227.311.346-.266v1.362h.438v-1.856zm5.108 0l-.611.448.228.311.346-.266v1.362h.438v-1.856zm-9.712.322c.058 0 .105.02.14.062a.421.421 0 0 1 .083.151.96.96 0 0 1 .04.196 1.932 1.932 0 0 1 0 .386.954.954 0 0 1-.04.197.421.421 0 0 1-.083.152.176.176 0 0 1-.14.061.18.18 0 0 1-.141-.06.427.427 0 0 1-.085-.153.887.887 0 0 1-.041-.197 1.96 1.96 0 0 1 0-.386.893.893 0 0 1 .04-.196.42.42 0 0 1 .086-.151.181.181 0 0 1 .141-.062zm3.086 0c.058 0 .104.02.14.062a.421.421 0 0 1 .082.151.94.94 0 0 1 .04.196 1.906 1.906 0 0 1 0 .386.93.93 0 0 1-.04.197.421.421 0 0 1-.082.152.176.176 0 0 1-.14.061.18.18 0 0 1-.141-.06.42.42 0 0 1-.086-.153.846.846 0 0 1-.04-.197 1.965 1.965 0 0 1-.011-.195c0-.057.004-.121.01-.191a.849.849 0 0 1 .041-.196.42.42 0 0 1 .086-.151.182.182 0 0 1 .141-.062zm5.108 0c.058 0 .104.02.14.062a.421.421 0 0 1 .082.151.92.92 0 0 1 .04.196 1.963 1.963 0 0 1 0 .386.943.943 0 0 1-.04.197.421.421 0 0 1-.082.152.177.177 0 0 1-.14.061.18.18 0 0 1-.142-.06.437.437 0 0 1-.085-.153.95.95 0 0 1-.04-.197 1.965 1.965 0 0 1-.011-.195c0-.057.004-.121.01-.191a.959.959 0 0 1 .04-.196.47.47 0 0 1 .086-.151.181.181 0 0 1 .142-.062zm-1.684 1.814a.675.675 0 0 0-.336.079.66.66 0 0 0-.227.21.91.91 0 0 0-.127.31 1.731 1.731 0 0 0 0 .748.939.939 0 0 0 .127.314c.059.09.134.162.227.215.093.053.205.08.336.08a.66.66 0 0 0 .334-.08.648.648 0 0 0 .224-.215c.058-.09.1-.195.126-.314a1.737 1.737 0 0 0-.001-.747.928.928 0 0 0-.125-.31.65.65 0 0 0-.224-.211.668.668 0 0 0-.334-.079zm3.063 0a.676.676 0 0 0-.336.079.664.664 0 0 0-.227.21.906.906 0 0 0-.127.31 1.74 1.74 0 0 0 0 .748.936.936 0 0 0 .127.314.66.66 0 0 0 .227.215c.092.053.204.08.336.08a.654.654 0 0 0 .334-.08.648.648 0 0 0 .223-.215c.058-.09.1-.195.126-.314a1.74 1.74 0 0 0 0-.747.928.928 0 0 0-.126-.31.65.65 0 0 0-.223-.211.666.666 0 0 0-.334-.079zm-1.545.05l-.611.448.228.312.346-.267v1.363h.438v-1.856zm-1.518.323c.057 0 .104.02.14.061a.42.42 0 0 1 .082.152.91.91 0 0 1 .04.195 1.966 1.966 0 0 1 0 .387.951.951 0 0 1-.04.197.421.421 0 0 1-.082.152.177.177 0 0 1-.14.06.18.18 0 0 1-.142-.06.428.428 0 0 1-.085-.152.914.914 0 0 1-.04-.197 1.96 1.96 0 0 1-.011-.195c0-.058.003-.122.01-.192a.923.923 0 0 1 .041-.195c.02-.06.048-.11.085-.152a.181.181 0 0 1 .142-.061zm3.063 0c.057 0 .104.02.14.061a.42.42 0 0 1 .082.152.94.94 0 0 1 .04.195 1.91 1.91 0 0 1 0 .387.93.93 0 0 1-.04.197.422.422 0 0 1-.083.152.175.175 0 0 1-.14.06.18.18 0 0 1-.141-.06.423.423 0 0 1-.085-.152.907.907 0 0 1-.04-.197 1.95 1.95 0 0 1 0-.387.915.915 0 0 1 .04-.195c.02-.06.048-.11.085-.152a.182.182 0 0 1 .142-.061zm-9.713.185a.465.465 0 0 0-.232.055.456.456 0 0 0-.157.146.627.627 0 0 0-.089.215 1.168 1.168 0 0 0-.027.259c0 .09.009.177.027.26a.648.648 0 0 0 .089.216c.04.063.093.112.157.149a.459.459 0 0 0 .232.056c.09 0 .168-.02.231-.056a.45.45 0 0 0 .156-.149.67.67 0 0 0 .087-.217 1.218 1.218 0 0 0 0-.518.647.647 0 0 0-.087-.215.448.448 0 0 0-.156-.146.458.458 0 0 0-.23-.055zm1.052.035l-.423.31.158.217.24-.185v.944h.303v-1.286zm-1.052.224c.04 0 .073.014.097.042a.284.284 0 0 1 .057.105.69.69 0 0 1 .028.136c.004.049.007.092.007.133 0 .04-.003.086-.007.135a.684.684 0 0 1-.028.136.285.285 0 0 1-.057.105.123.123 0 0 1-.097.043.125.125 0 0 1-.098-.043.298.298 0 0 1-.059-.105.612.612 0 0 1-.028-.136 1.39 1.39 0 0 1 0-.268.62.62 0 0 1 .028-.136.297.297 0 0 1 .06-.105.125.125 0 0 1 .097-.042zm3.775 1.394a.463.463 0 0 0-.232.054.452.452 0 0 0-.157.146.621.621 0 0 0-.088.214 1.19 1.19 0 0 0 0 .519.641.641 0 0 0 .088.217.46.46 0 0 0 .157.15.458.458 0 0 0 .232.054.454.454 0 0 0 .232-.055.45.45 0 0 0 .155-.149.664.664 0 0 0 .087-.217 1.189 1.189 0 0 0 0-.519.642.642 0 0 0-.087-.214.446.446 0 0 0-.155-.146.459.459 0 0 0-.232-.054zm1.052.034l-.423.31.158.216.24-.185v.945h.303V22.68zm-1.052.223c.04 0 .073.014.098.043a.3.3 0 0 1 .057.105.643.643 0 0 1 .027.135 1.31 1.31 0 0 1 0 .268.654.654 0 0 1-.027.137.307.307 0 0 1-.057.105.124.124 0 0 1-.098.042.125.125 0 0 1-.098-.042.293.293 0 0 1-.059-.105.618.618 0 0 1-.028-.137 1.364 1.364 0 0 1 0-.268.612.612 0 0 1 .028-.135.287.287 0 0 1 .06-.105.123.123 0 0 1 .097-.043z"/>',
+    hackthebox: '<path fill="currentColor" d="m22.5106 6.4566.0008-.0123a.888.888 0 0 0-.2717-.6384c-.0084-.0084-.018-.0155-.0267-.0235-.0186-.0166-.0371-.0333-.0572-.0484-.0193-.0147-.04-.0276-.0607-.0406-.0096-.006-.0182-.0131-.0281-.0188L12.4576.1266a.891.891 0 0 0-.9223.0043L1.933 5.6744c-.0107.0062-.0203.014-.0307.0205-.0073.0047-.015.008-.0223.0128-.007.0047-.013.0106-.02.0155a.8769.8769 0 0 0-.147.1333l-.0026.003a.8872.8872 0 0 0-.2218.5847l.0009.014c-.0002.0088-.0015.0176-.0015.0264v11.0708c0 .3277.1802.6288.469.7836l9.5986 5.5417c.0076.0044.0158.0075.0236.0117a.8754.8754 0 0 0 .166.0687c.0134.004.0266.0083.0401.0117a.8793.8793 0 0 0 .072.0142c.0117.0019.0232.0045.0349.006a.835.835 0 0 0 .2157 0c.0117-.0015.0232-.0041.0348-.006a.9.9 0 0 0 .072-.0142c.0135-.0034.0267-.0077.04-.0117a.895.895 0 0 0 .0646-.0217.9134.9134 0 0 0 .1015-.047c.0078-.0042.016-.0072.0236-.0117l9.5986-5.5417a.8888.8888 0 0 0 .469-.7836V6.4779c0-.0071-.0012-.0142-.0014-.0213zM5.2543 6.0822l6.5367-3.774a.4182.4182 0 0 1 .4182 0l6.5366 3.774a.4182.4182 0 0 1 0 .7243l-6.5367 3.774a.4182.4182 0 0 1-.4182 0l-6.5366-3.774a.4182.4182 0 0 1 0-.7243zm5.6134 14.3449a.4172.4172 0 0 1-.626.3613L3.718 17.0218a.4173.4173 0 0 1-.2086-.3613V9.1279a.4172.4172 0 0 1 .6258-.3613l6.524 3.7666a.4172.4172 0 0 1 .2086.3614v7.5325zm9.623-3.7666a.4173.4173 0 0 1-.2086.3613l-6.5239 3.7666a.4172.4172 0 0 1-.6259-.3613v-7.5325c0-.149.0796-.2868.2087-.3614l6.5239-3.7666a.4172.4172 0 0 1 .6258.3613v7.5326z"/>',
+    link: '<g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></g>',
   };
   function ic(n, cls) { var b = SOLAR[n] || BRAND[n] || ''; return '<svg class="ic ' + (cls || '') + '" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + b + '</svg>'; }
 
   var lang = root.dataset.lang === 'en' ? 'en' : 'fr';
-  var state = { filter: '*', query: '', cert: '*', certAll: false };
+  var state = { filter: '*', query: '', cert: '*', certAll: false, projAll: false };
+  var PROJ_LIMIT = 9;
+  var PREVIEW = D.showDrafts === true || /[?&]preview(=|&|$)/.test(location.search);
+  function vis(x) { return !x || !x.draft || PREVIEW; }
+  var CF = D.contactForm || {};
+  var CF_ON = !!(CF.endpoint && CF.siteKey && /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(CF.endpoint));
+  D.projects = D.projects.filter(vis); D.timeline = D.timeline.filter(vis);
+  if (PREVIEW) { var pb = document.createElement('div'); pb.className = 'prev-badge'; pb.textContent = (document.documentElement.getAttribute('data-lang') === 'en') ? 'Draft mode: sample content and empty slots are visible (set showDrafts to false to publish)' : 'Mode brouillon : contenus d’exemple et emplacements vides visibles (mets showDrafts à false pour publier)'; document.body.appendChild(pb); }
   var P = D.person;
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var catLabel = {}; (D.categories || []).forEach(function (c) { catLabel[c.id] = c.label; });
@@ -68,7 +84,7 @@
   function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
   function mail() { return esc(P.email).replace('@', '<wbr>@'); }
   function socials(cls) {
-    return '<div class="' + cls + '">' + ['linkedin', 'x', 'facebook', 'instagram'].filter(function (k) { return P[k]; })
+    return '<div class="' + cls + '">' + ['linkedin', 'github', 'credly', 'x', 'facebook', 'instagram'].filter(function (k) { return P[k]; })
       .map(function (k) { return '<a href="' + esc(P[k]) + '" target="_blank" rel="noopener" aria-label="' + k + '">' + ic(k) + '</a>'; }).join('') + '</div>';
   }
   function head(icon, kicker, title, sub) {
@@ -76,11 +92,12 @@
   }
 
   /* ---------------- sidebar (MyResume style pills) ---------------- */
-  var NAV = [['home', 'home'], ['about', 'about'], ['services', 'services'], ['work', 'work'], ['journey', 'journey'], ['skills', 'skills'], ['contact', 'contact']];
+  var NAV = [['home', 'home'], ['about', 'about'], ['services', 'services'], ['work', 'work'], ['journey', 'journey'], ['skills', 'skills'], ['proof', 'target'], ['contact', 'contact']];
+  function proofGroups() { return (D.proofs || []).map(function (g) { return { title: g.title, items: (g.items || []).filter(function (i) { return i && (i.url || PREVIEW) && vis(i); }) }; }).filter(function (g) { return g.items.length; }); }
   function sidebar() {
     return '<button class="nav-toggle" type="button" data-toggle aria-controls="side" aria-expanded="false" aria-label="' + u('menu') + '">' + ic('menu', 'i-open') + ic('close', 'i-close') + '</button>' +
       '<header class="side" id="side"><nav class="pills" aria-label="Navigation"><ul>' +
-      NAV.map(function (n) { return '<li><a href="#' + n[0] + '" data-sec="' + n[0] + '">' + ic(n[1]) + '<span>' + u(n[0]) + '</span></a></li>'; }).join('') +
+      NAV.filter(function (n) { return n[0] !== 'proof' || proofGroups().length; }).map(function (n) { return '<li><a href="#' + n[0] + '" data-sec="' + n[0] + '">' + ic(n[1]) + '<span>' + u(n[0]) + '</span></a></li>'; }).join('') +
       '<li class="sep" aria-hidden="true"></li>' +
       '<li><button type="button" data-lang-toggle aria-label="' + u('language') + '"><b class="lg-badge">' + (lang === 'fr' ? 'EN' : 'FR') + '</b><span>' + (lang === 'fr' ? 'English' : 'Français') + '</span></button></li>' +
       '<li><button type="button" data-theme-toggle aria-label="' + u('theme') + '">' + ic('moon', 'i-moon') + ic('sun', 'i-sun') + '<span>' + u('theme') + '</span></button></li>' +
@@ -90,7 +107,7 @@
   /* ---------------- sections ---------------- */
   function hero() {
     return '<section class="hero" id="home"><div class="hero-bg" aria-hidden="true"></div><div class="wrap hero-in">' +
-      '<div class="hero-logo"><img class="brand-logo lg-l" src="assets/img/gestop-logo.png" alt="GesTop Business & Services" width="1000" height="370"><img class="brand-logo lg-d" src="assets/img/gestop-logo-light.png" alt="" width="1000" height="370"></div>' +
+      '<div class="hero-logo"><img class="brand-logo lg-l" src="assets/img/gestop-logo.webp" alt="GesTop Business & Services" width="1000" height="370"><img class="brand-logo lg-d" src="assets/img/gestop-logo-light.webp" alt="" width="1000" height="370"></div>' +
       '<div class="hero-txt">' +
         (P.available ? '<p class="avail"><i></i>' + E(P.availability) + '</p>' : '') +
         '<p class="hello">' + u('hello') + '</p>' +
@@ -128,15 +145,20 @@
     }).join('') + '</div></section>';
   }
 
+  function interestsBlock() {
+    var l = t(D.interests); if (!l || !l.length) return '';
+    return '<h4 class="int-h">' + u('interests') + '</h4><ul class="chips int">' + l.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>';
+  }
+
   function about() {
     var A = D.about;
     var facts = [['pin', 'based', E(P.location)], ['grad', 'degree', E(A.degree)], ['mail', 'email', '<a href="mailto:' + esc(P.email) + '">' + mail() + '</a>'],
-      ['phone', 'phone', '<a href="tel:' + esc(P.phone_href) + '">' + esc(P.phone) + '</a>'], ['globe', 'website', '<a href="' + esc(P.website) + '" target="_blank" rel="noopener">' + esc(P.website_label) + '</a>'],
+      (P.phone ? ['phone', 'phone', '<a href="tel:' + esc(P.phone_href) + '">' + esc(P.phone) + '</a>'] : null), ['globe', 'website', '<a href="' + esc(P.website) + '" target="_blank" rel="noopener">' + esc(P.website_label) + '</a>'],
       ['brief', 'freelance', '<span class="ok">' + u('available') + '</span>']];
     return '<section class="sec" id="about"><div class="wrap">' + head('about', u('about'), E(A.title)) +
       '<div class="about"><div class="about-pic rv"><img src="' + esc(P.photo) + '" alt="' + esc(P.name) + '" loading="lazy"></div>' +
       '<div class="about-txt rv"><h3>' + E(P.role) + ' <span>— ' + E(P.focus) + '</span></h3><p>' + E(A.text) + '</p><p class="goal">' + ic('target') + '<span>' + E(A.goal) + '</span></p>' +
-      '<ul class="facts">' + facts.map(function (f) { return '<li>' + ic(f[0]) + '<div><small>' + u(f[1]) + '</small><b>' + f[2] + '</b></div></li>'; }).join('') + '</ul></div></div></div></section>';
+      '<ul class="facts">' + facts.filter(Boolean).map(function (f) { return '<li>' + ic(f[0]) + '<div><small>' + u(f[1]) + '</small><b>' + f[2] + '</b></div></li>'; }).join('') + '</ul>' + interestsBlock() + '</div></div></div></section>';
   }
 
   function services() {
@@ -163,10 +185,15 @@
       return [t(p.title), t(p.summary), t(p.client), (t(p.stack) || []).join(' ')].join(' ').toLowerCase().indexOf(q) > -1;
     });
     if (!list.length) return '<p class="empty">' + u('noResult') + '</p>';
+    var more = '';
+    if (state.filter === '*' && !q && list.length > PROJ_LIMIT) {
+      more = '<div class="pc-moreb">' + (state.projAll ? '<button type="button" class="btn ghost" data-proj-less>' + u('seeLess') + '</button>' : '<button type="button" class="btn pri" data-proj-more>' + u('seeAll').replace('{n}', list.length) + ic('arrow-right') + '</button>') + '</div>';
+      if (!state.projAll) list = list.slice(0, PROJ_LIMIT);
+    }
     return list.map(function (p) {
-      return '<a class="pc cat-' + p.category + '" href="#/p/' + p.slug + '"><div class="pc-img"><img src="' + esc(p.image) + '" alt="" loading="lazy"><span class="pc-cat">' + ic(CAT_ICON[p.category]) + E(catLabel[p.category]) + '</span></div>' +
+      return '<a class="pc cat-' + p.category + (p.draft ? ' draft' : '') + '" href="#/p/' + p.slug + '"><div class="pc-img"><img src="' + esc(p.image) + '" alt="" loading="lazy"><span class="pc-cat">' + ic(CAT_ICON[p.category]) + E(catLabel[p.category]) + '</span></div>' +
         '<div class="pc-b"><h3>' + E(p.title) + '</h3><p>' + E(p.summary) + '</p><span class="more">' + u('caseStudy') + ic('arrow-right') + '</span></div></a>';
-    }).join('');
+    }).join('') + more;
   }
 
   function journey() {
@@ -174,7 +201,7 @@
       var items = D.timeline.filter(function (x) { return x.kind === kind; });
       return '<div class="tl-col rv"><h3 class="tl-h">' + ic(icon) + u(kind) + '</h3><ol class="tl">' + items.map(function (x) {
         var body = x.points ? '<ul>' + t(x.points).map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' : (x.text ? '<p>' + E(x.text) + '</p>' : '');
-        return '<li><span class="tl-d">' + ic('calendar') + E(x.period) + (x.current ? '<em>' + u('current') + '</em>' : '') + '</span><h4>' + E(x.title) + '</h4><p class="tl-o">' + E(x.org) + '</p>' + body + '</li>';
+        return '<li' + (x.draft ? ' class="draft"' : '') + '><span class="tl-d">' + ic('calendar') + E(x.period) + (x.current ? '<em>' + u('current') + '</em>' : '') + '</span><h4>' + E(x.title) + '</h4><p class="tl-o">' + E(x.org) + '</p>' + body + '</li>';
       }).join('') + '</ol></div>';
     }
     return '<section class="sec alt" id="journey"><div class="wrap">' + head('journey', u('journey'), u('journeyTitle')) +
@@ -194,7 +221,7 @@
     var groups = D.skills.map(function (g) {
       return '<div class="sg rv"><h4>' + ic(g.icon) + E(g.group) + '</h4><ul class="chips">' + t(g.items).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul></div>';
     }).join('');
-    var bars = D.proficiency.map(function (b) { return '<li><div><span>' + E(b.label) + '</span><b>' + b.level + '%</b></div><i><s style="--v:' + b.level + '%"></s></i></li>'; }).join('');
+    var bars = D.proficiency.map(function (b) { return '<li><div><span>' + E(b.label) + '</span><b>' + lvlWord(b.level) + '</b></div><i><s style="--v:' + b.level + '%"></s></i></li>'; }).join('');
     var langs = D.languages.map(function (b) { return '<li><div><span>' + E(b.name) + '</span><b>' + E(b.level) + '</b></div><i><s style="--v:' + b.value + '%"></s></i></li>'; }).join('');
     return '<section class="sec" id="skills"><div class="wrap">' + head('skills', u('skills'), u('skillsTitle')) +
       '<div class="sk-grid">' + groups + '</div>' +
@@ -212,27 +239,44 @@
     if (isNaN(d)) return esc(v);
     return d.toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-GB', { month: 'short', year: 'numeric' });
   }
+  function lvlWord(v) { return v >= 85 ? (lang === 'fr' ? 'Avancé' : 'Advanced') : v >= 70 ? (lang === 'fr' ? 'Confirmé' : 'Proficient') : (lang === 'fr' ? 'Intermédiaire' : 'Intermediate'); }
   function certBlock() {
     var doms = (D.certDomains || [{ id: '*', label: u('certs') }]).map(function (d) {
       var n = d.id === '*' ? D.certifications.length : D.certifications.filter(function (c) { return c.domain === d.id; }).length;
       return '<button type="button" class="fl' + (state.cert === d.id ? ' on' : '') + '" data-cert="' + d.id + '" aria-pressed="' + (state.cert === d.id) + '">' + E(d.label) + ' <sup>' + n + '</sup></button>';
     }).join('');
-    return '<div class="certs-b rv"><div class="cb-head"><h3>' + ic('diploma') + u('certs') + ' <sup>' + D.certifications.length + '</sup></h3><div class="fls" role="group">' + doms + '</div></div>' +
-      '<div class="cgrid" data-certs>' + certCards() + '</div></div>';
+    return '<div class="certs-b rv"><div class="cb-head"><h3>' + ic('diploma') + u('certs') + ' <sup>' + D.certifications.length + '</sup></h3>' + (P.credly ? '<a class="cb-cred" href="' + esc(P.credly) + '" target="_blank" rel="noopener">' + ic('credly') + u('credlyAll') + '</a>' : '') + '<div class="fls" role="group">' + doms + '</div></div>' +
+      '<div class="cgrid" data-certs>' + certCards() + '</div>' + plannedBlock() + '</div>';
   }
   function certCards() {
     var list = D.certifications.filter(function (c) { return state.cert === '*' || c.domain === state.cert; });
-    var LIMIT = 9, more = list.length > LIMIT;
+    var LIMIT = 6, more = list.length > LIMIT;
     var shown = (more && !state.certAll) ? list.slice(0, LIMIT) : list;
     var html = shown.map(function (c) {
       var m = ISSUER[c.issuer] || [String(c.issuer || '?').charAt(0), '#1c78db'];
       return '<article class="cc">' + (ISSUER_LOGO[c.issuer] ? '<span class="cc-logo lg" role="img" aria-label="' + esc(c.issuer) + '">' + ISSUER_LOGO[c.issuer] + '</span>' : '<span class="cc-logo" style="--ib:' + m[1] + '">' + esc(m[0]) + '</span>') + '<div class="cc-b"><h5>' + E(c.name) + '</h5>' +
         '<p class="cc-m"><b>' + esc(c.issuer) + '</b>' + (c.date ? ' · ' + fmtDate(c.date) : '') + '</p>' +
         ((c.expires || c.id) ? '<p class="cc-x">' + (c.expires ? '<span>' + u('certExp') + ' ' + fmtDate(c.expires) + '</span>' : '') + (c.id ? '<code>' + u('certId') + ' ' + esc(c.id) + '</code>' : '') + '</p>' : '') +
-        '</div></article>';
+        (function () { var href = c.url || c.file || P.credly; return href ? '<p class="cc-act"><a class="cc-v cc-btn" href="' + esc(href) + '" target="_blank" rel="noopener">' + ic('tick') + u('verify') + '</a></p>' : ''; })() + '</div></article>';
     }).join('');
     if (more) html += '<button type="button" class="cc-more" data-cert-more>' + (state.certAll ? u('certLess') : u('certAll').replace('{n}', list.length)) + ic(state.certAll ? 'arrow-up' : 'arrow-right') + '</button>';
     return html;
+  }
+
+  function plannedBlock() {
+    var pl = (D.certPlanned || []).filter(vis); if (!pl.length) return '';
+    return '<div class="cplan"><h4>' + u('certPlanned') + '</h4><ul class="chips">' + pl.map(function (x) { return '<li' + (x.draft ? ' class="draft"' : '') + '>' + E(x.name) + (x.target ? ' · ' + esc(x.target) : '') + '</li>'; }).join('') + '</ul></div>';
+  }
+
+  function proof() {
+    var gs = proofGroups(); if (!gs.length) return '';
+    return '<section class="sec proofs" id="proof"><div class="wrap">' + head('target', u('proof'), u('proofTitle'), u('proofSub')) +
+      gs.map(function (g) {
+        return '<div class="prf-g rv"><h3>' + E(g.title) + '</h3><div class="prf">' + g.items.map(function (l) {
+          var ext = /^https?:/.test(l.url || ''), inner = ic(l.icon || 'link') + '<span><b>' + E(l.label) + '</b>' + (l.note ? '<small>' + E(l.note) + '</small>' : '') + '</span>' + ic(l.download ? 'download' : 'arrow-right');
+          return l.url ? '<a class="plink" href="' + esc(l.url) + '"' + (ext ? ' target="_blank" rel="noopener"' : (l.download ? ' download' : '')) + '>' + inner + '</a>' : '<span class="plink off">' + inner + '</span>';
+        }).join('') + '</div></div>';
+      }).join('') + '</div></section>';
   }
 
   function contact() {
@@ -241,22 +285,25 @@
       return '<li>' + ic(icon) + '<div><small>' + label + '</small><b>' + val + '</b></div>' + (copyVal ? '<button type="button" class="cp" data-copy="' + esc(copyVal) + '" aria-label="' + u('copy') + '">' + ic('copy') + '</button>' : '') + '</li>';
     }
     return '<section class="sec alt" id="contact"><div class="wrap">' + head('contact', u('contact'), u('contactTitle'), E(C.text)) +
-      '<div class="ct"><div class="ct-l rv"><ul class="ci">' +
+      '<div class="ct"><div class="ct-l rv">' + (P.available ? '<p class="ct-av"><i></i><span>' + E(P.availability) + '</span></p>' : '') + '<ul class="ci">' +
         item('mail', u('email'), '<a href="mailto:' + esc(P.email) + '">' + mail() + '</a>', P.email) +
-        item('phone', u('phone'), '<a href="tel:' + esc(P.phone_href) + '">' + esc(P.phone) + '</a>', P.phone) +
+        ((P.pgp || PREVIEW) ? item('lock', u('pgp'), P.pgp ? '<a href="' + esc(P.pgp) + '" download>pgp.asc</a>' : '<span class="muted">' + u('toAdd') + '</span>', P.pgp || 'x') : '') +
+        (P.phone ? item('phone', u('phone'), '<a href="tel:' + esc(P.phone_href) + '">' + esc(P.phone) + '</a>', P.phone) : '') +
         item('linkedin', 'LinkedIn', '<a href="' + esc(P.linkedin) + '" target="_blank" rel="noopener">' + esc(P.linkedin_label) + '</a>') +
         item('pin', u('based'), E(P.location)) + '</ul>' +
+        '<div class="ct-meta"><span>' + ic('calendar') + u('replyTime') + '</span><span>' + ic('langs') + u('replyLangs') + '</span></div>' +
+        '<div class="ct-soc"><small>' + u('followMe') + '</small>' + socials('soc') + '</div>' +
         '<div class="ct-cv"><a class="btn ghost" href="' + esc(P.cv.fr) + '" download>' + ic('download') + u('cvFr') + '</a><a class="btn ghost" href="' + esc(P.cv.en) + '" download>' + ic('download') + u('cvEn') + '</a></div></div>' +
       '<form class="form rv" data-form novalidate><div class="row2"><label><span>' + u('name') + '</span><input name="name" autocomplete="name"></label><label><span>' + u('yourEmail') + '</span><input name="email" type="email" autocomplete="email"></label></div>' +
         '<label><span>' + u('subject') + '</span><input name="subject"></label><label><span>' + u('message') + '</span><textarea name="message" rows="6" required></textarea></label>' +
-        '<div class="f-ft"><button class="btn pri" type="submit">' + ic('send') + u('send') + '</button><small>' + u('formNote') + '</small></div></form></div></div></section>';
+        '<div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>' + ((CF_ON || PREVIEW) ? '<div class="drop' + (CF_ON ? '' : ' off') + '" data-drop tabindex="0" role="button" aria-label="' + u('dropAria') + '"><input type="file" data-file hidden accept=".pdf,.png,.jpg,.jpeg,.txt,.docx">' + ic('download') + '<span><b>' + u('dropTitle') + '</b><small>' + u('dropHint') + '</small></span></div><ul class="drop-l" data-droplist></ul>' : '') + ((CF_ON || PREVIEW) ? '<div class="bot' + (CF_ON ? '' : ' demo') + '"><button type="button" class="bot-cb" role="checkbox" aria-checked="false" aria-labelledby="bot-t" data-bot><span class="bot-box" aria-hidden="true"></span></button><span class="bot-t" id="bot-t">' + u('botLabel') + '</span><span class="bot-by">' + u('botBy') + '</span></div><div class="ts" data-ts></div>' : '') + '<p class="f-st" data-status role="status" aria-live="polite"></p>' + '<div class="f-ft"><button class="btn pri" type="submit">' + ic('send') + u('send') + '</button><small>' + u(CF_ON ? 'formNoteSecure' : 'formNote') + '</small></div></form></div></div></section>';
   }
 
   function footer() {
     return '<footer class="foot"><div class="wrap foot-in">' +
-      '<a class="foot-brand" href="' + esc(P.website) + '" target="_blank" rel="noopener"><small>' + u('poweredBy') + '</small><img class="lg-l" src="assets/img/gestop-logo.png" alt="GesTop Business & Services" loading="lazy"><img class="lg-d" src="assets/img/gestop-logo-light.png" alt="" loading="lazy"></a>' +
+      '<a class="foot-brand" href="' + esc(P.website) + '" target="_blank" rel="noopener"><small>' + u('poweredBy') + '</small><img class="lg-l" src="assets/img/gestop-logo.webp" alt="GesTop Business & Services" loading="lazy"><img class="lg-d" src="assets/img/gestop-logo-light.webp" alt="" loading="lazy"></a>' +
       '<p class="foot-name">' + esc(P.name) + '</p>' + socials('soc') +
-      '<p class="foot-c">© ' + new Date().getFullYear() + ' ' + esc(P.name) + ' · GesTop.ma — ' + u('rights') + '<br><small>' + u('iconsCredit') + '</small></p>' +
+      '<p class="foot-c">© ' + new Date().getFullYear() + ' ' + esc(P.name) + ' · GesTop.ma — ' + u('rights') + '</p>' +
       '</div></footer><a class="totop" href="#home" aria-label="' + u('toTop') + '">' + ic('arrow-up') + '</a>';
   }
 
@@ -274,8 +321,9 @@
     return '<div class="dw-scrim" data-close></div><article class="dw cat-' + p.category + '" role="dialog" aria-modal="true" aria-labelledby="dw-t" tabindex="-1">' +
       '<div class="dw-bar"><span class="pc-cat">' + ic(CAT_ICON[p.category]) + E(catLabel[p.category]) + '</span><span class="dw-n">' + String(i + 1).padStart(2, '0') + ' / ' + n + '</span><button class="ib" type="button" data-close aria-label="' + u('close') + '">' + ic('close') + '</button></div>' +
       '<div class="dw-body"><h2 id="dw-t">' + E(p.title) + '</h2><p class="lede">' + E(p.summary) + '</p><div class="dw-img"><img src="' + esc(p.image) + '" alt=""></div>' +
-      '<div class="dw-meta">' + meta + '</div><div class="dw-txt">' + block('overview', p.overview) + block('context', p.context) + block('did', p.work) + block('results', p.results) +
-      '<h3>' + u('stack') + '</h3><ul class="chips">' + (t(p.stack) || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul></div>' +
+      '<div class="dw-meta">' + meta + '</div><div class="dw-txt">' + block('overview', p.overview) + block('context', p.context) + block('did', p.work) + block('results', p.results) + block('method', p.method || ((PREVIEW && p.category === 'security') ? u('methodTodo') : '')) +
+      '<h3>' + u('stack') + '</h3><ul class="chips">' + (t(p.stack) || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul>' +
+      ((p.links && p.links.some(function (l) { return l && l.url; })) ? '<h3>' + u('proofs') + '</h3><div class="plinks">' + p.links.filter(function (l) { return l && l.url; }).map(function (l) { return '<a class="plink" href="' + esc(l.url) + '" target="_blank" rel="noopener">' + ic(l.icon || 'link') + '<span><b>' + esc(l.label) + '</b>' + (l.note ? '<small>' + esc(t(l.note)) + '</small>' : '') + '</span>' + ic('arrow-right') + '</a>'; }).join('') + '</div>' : '') + '</div>' +
       '<a class="dw-cta" href="#contact" data-close-go><span><small>' + u('similar') + '</small>' + u('letsTalk') + '</span>' + ic('arrow-right') + '</a>' +
       '<nav class="dw-pg"><a href="#/p/' + prev.slug + '">' + ic('arrow-left') + '<span><small>' + u('prev') + '</small>' + E(prev.title) + '</span></a><a class="nx" href="#/p/' + next.slug + '"><span><small>' + u('next') + '</small>' + E(next.title) + '</span>' + ic('arrow-right') + '</a></nav>' +
       '</div></article>';
@@ -286,7 +334,7 @@
     var y = window.scrollY;
     document.title = t(D.meta.title);
     var m = $('meta[name="description"]'); if (m) m.setAttribute('content', t(D.meta.description));
-    app.innerHTML = sidebar() + '<main id="main">' + hero() + stats() + about() + services() + work() + journey() + skills() + contact() + '</main>' + footer() + '<div id="drawer"></div>';
+    app.innerHTML = sidebar() + '<main id="main">' + hero() + stats() + about() + services() + work() + journey() + skills() + proof() + contact() + '</main>' + footer() + '<div id="drawer"></div>';
     $$('[data-i18n]').forEach(function (el) { el.textContent = u(el.getAttribute('data-i18n')); });
     bind(); reveal(); spy(); typer(); route(true);
     window.scrollTo(0, y);
@@ -325,13 +373,90 @@
     $$('[data-cert]', app).forEach(function (b) { b.onclick = function () { state.cert = b.getAttribute('data-cert'); state.certAll = false; $$('[data-cert]', app).forEach(function (x) { var on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-pressed', String(on)); }); $('[data-certs]', app).innerHTML = certCards(); bindCerts(); }; });
     bindCerts();
     var q = $('[data-q]', app); q.oninput = function () { state.query = q.value; $('[data-grid]').innerHTML = cards(); };
-    var f = $('[data-form]', app); f.onsubmit = function (e) {
+    $('[data-grid]', app).onclick = function (e) { var m = e.target.closest ? e.target.closest('[data-proj-more],[data-proj-less]') : null; if (!m) return; state.projAll = m.hasAttribute('data-proj-more'); this.innerHTML = cards(); if (!state.projAll) { var w = document.getElementById('work'); if (w && w.scrollIntoView) w.scrollIntoView({ behavior: 'smooth', block: 'start' }); } };
+    var f = $('[data-form]', app), started = Date.now(), token = '', tsId = null, tsReady = false, tsRan = false, sending = false, file = null;
+    var st = $('[data-status]', f), box = $('[data-ts]', f), bot = $('[data-bot]', f);
+    var dz = $('[data-drop]', f), fin = $('[data-file]', f), dl = $('[data-droplist]', f);
+    var OKX = { pdf: 1, png: 1, jpg: 1, jpeg: 1, txt: 1, docx: 1 }, MAXB = 2 * 1024 * 1024;
+    function say(msg, kind) { st.textContent = msg; st.className = 'f-st' + (kind ? ' ' + kind : ''); }
+    function theme() { return root.dataset.theme || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
+    function setBot(x) { if (!bot) return; bot.className = 'bot-cb' + (x === 'idle' ? '' : ' is-' + x); bot.setAttribute('aria-checked', String(x === 'ok')); }
+    function withTs(cb) {
+      if (tsReady) return cb();
+      loadTurnstile(function () {
+        tsId = window.turnstile.render(box, { sitekey: CF.siteKey, theme: theme(), language: lang === 'fr' ? 'fr' : 'en', execution: 'execute', appearance: 'interaction-only',
+          callback: function (tk) { token = tk; setBot('ok'); }, 'expired-callback': function () { token = ''; setBot('idle'); }, 'error-callback': function () { token = ''; setBot('err'); } });
+        tsReady = true; cb();
+      });
+    }
+    function runBot() {
+      if (!bot || bot.classList.contains('is-loading') || bot.classList.contains('is-ok')) return;
+      setBot('loading');
+      if (!CF_ON) { setTimeout(function () { setBot('ok'); }, 700); return; }
+      withTs(function () { try { if (tsRan) window.turnstile.reset(tsId); tsRan = true; window.turnstile.execute(tsId); } catch (x) { setBot('err'); } });
+    }
+    if (bot) bot.onclick = runBot;
+    function sniff(fl, ext) {
+      return new Promise(function (ok) {
+        var r = new FileReader(); r.onerror = function () { ok(false); };
+        r.onload = function () {
+          var b = new Uint8Array(r.result), h = function (a) { return a.every(function (v, i) { return b[i] === v; }); };
+          ok(ext === 'pdf' ? h([0x25, 0x50, 0x44, 0x46, 0x2D]) : ext === 'png' ? h([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]) : (ext === 'jpg' || ext === 'jpeg') ? h([0xFF, 0xD8, 0xFF]) : ext === 'docx' ? h([0x50, 0x4B, 0x03, 0x04]) : Array.prototype.indexOf.call(b, 0) === -1);
+        };
+        r.readAsArrayBuffer(fl.slice(0, 1024));
+      });
+    }
+    function readB64(fl) { return new Promise(function (ok, ko) { var r = new FileReader(); r.onload = function () { ok(String(r.result).split(',')[1] || ''); }; r.onerror = ko; r.readAsDataURL(fl); }); }
+    function showFile() { dl.innerHTML = file ? '<li><span>' + esc(file.name) + ' · ' + Math.max(1, Math.round(file.size / 1024)) + ' Ko</span><button type="button" data-rm aria-label="' + u('dropRemove') + '">' + ic('close') + '</button></li>' : ''; dz.classList.toggle('has', !!file); }
+    function setFile(fl) {
+      if (!fl) return; var parts = fl.name.split('.'), ext = parts.length > 1 ? parts.pop().toLowerCase() : '';
+      if (!OKX[ext] || !fl.size) return say(u('errFileType'), 'err');
+      if (fl.size > MAXB) return say(u('errFileSize'), 'err');
+      sniff(fl, ext).then(function (ok) { if (!ok) return say(u('errFileType'), 'err'); file = fl; showFile(); say(''); });
+    }
+    if (dz) {
+      dz.onclick = function () { if (!CF_ON) return say(u('dropDemo')); fin.click(); };
+      dz.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dz.click(); } };
+      ['dragenter', 'dragover'].forEach(function (n) { dz.addEventListener(n, function (e) { e.preventDefault(); if (CF_ON) dz.classList.add('over'); }); });
+      ['dragleave', 'drop'].forEach(function (n) { dz.addEventListener(n, function (e) { e.preventDefault(); dz.classList.remove('over'); }); });
+      dz.addEventListener('drop', function (e) { if (!CF_ON) return say(u('dropDemo')); setFile(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]); });
+      fin.onchange = function () { setFile(fin.files[0]); fin.value = ''; };
+      dl.onclick = function (e) { if (e.target.closest && e.target.closest('[data-rm]')) { file = null; showFile(); } };
+    }
+    f.onsubmit = function (e) {
       e.preventDefault(); var el = f.elements;
-      if (!el.message.value.trim()) { el.message.focus(); return; }
-      var subj = el.subject.value.trim() || ('Portfolio – ' + (el.name.value.trim() || 'Contact'));
-      var body = el.message.value.trim() + '\n\n— ' + el.name.value.trim() + (el.email.value.trim() ? ' <' + el.email.value.trim() + '>' : '');
-      location.href = 'mailto:' + P.email + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+      if (!CF_ON) {
+        if (!el.message.value.trim()) { el.message.focus(); return; }
+        var subj = el.subject.value.trim() || ('Portfolio – ' + (el.name.value.trim() || 'Contact'));
+        var body = el.message.value.trim() + '\n\n— ' + el.name.value.trim() + (el.email.value.trim() ? ' <' + el.email.value.trim() + '>' : '');
+        location.href = 'mailto:' + P.email + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+        return;
+      }
+      if (sending) return;
+      var name = el.name.value.trim(), email = el.email.value.trim(), msg = el.message.value.trim();
+      if (name.length < 2) { el.name.focus(); return say(u('errName'), 'err'); }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { el.email.focus(); return say(u('errEmail'), 'err'); }
+      if (msg.length < 10) { el.message.focus(); return say(u('errMsg'), 'err'); }
+      if (!token) { if (bot) bot.focus(); return say(u('errCaptcha'), 'err'); }
+      sending = true; var btn = $('[type=submit]', f); btn.disabled = true; say(u('sending'));
+      var ctrl = window.AbortController ? new AbortController() : null, to = setTimeout(function () { if (ctrl) ctrl.abort(); }, 30000);
+      (file ? readB64(file) : Promise.resolve(null)).then(function (b64) {
+        var data = new URLSearchParams({ name: name, email: email, subject: el.subject.value.trim(), message: msg, website: el.website.value, t: String(started), token: token, lang: lang });
+        if (b64) { data.set('fileName', file.name); data.set('fileData', b64); }
+        return fetch(CF.endpoint, { method: 'POST', body: data, redirect: 'follow', credentials: 'omit', referrerPolicy: 'no-referrer', signal: ctrl ? ctrl.signal : undefined });
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (j) { if (j && j.ok) { say(u('sentOk'), 'ok'); f.reset(); file = null; showFile(); started = Date.now(); setTimeout(function () { btn.disabled = false; sending = false; }, 30000); } else { throw new Error((j && j.error) || 'server'); } })
+        .catch(function (err) { var m = String(err && err.message); say(u(m === 'captcha' ? 'errCaptcha2' : m === 'rate' ? 'errRate' : m === 'fields' ? 'errMsg' : m === 'file' ? 'errFileType' : 'errSend').replace('{mail}', P.email), 'err'); btn.disabled = false; sending = false; if (m === 'timing') started = Date.now(); })
+        .then(function () { clearTimeout(to); token = ''; setBot('idle'); });
     };
+  }
+
+  function loadTurnstile(cb) {
+    if (window.turnstile) return cb();
+    var sc = document.createElement('script'); sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; sc.async = true; sc.defer = true; sc.onload = cb;
+    sc.onerror = function () { var st = $('[data-status]'); if (st) { st.textContent = u('errSend').replace('{mail}', P.email); st.className = 'f-st err'; } };
+    document.head.appendChild(sc);
   }
 
   function counters(scope) {
