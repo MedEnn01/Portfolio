@@ -23,7 +23,7 @@ if (window.top !== window.self) { document.documentElement.style.display = 'none
       copy: 'Copier', copied: 'Copié ✓', rights: 'Tous droits réservés.', poweredBy: 'Freelance avec',
       overview: 'Présentation', context: 'Contexte', did: "Ce que j'ai réalisé", results: 'Livrables & résultats', client: 'Client / contexte', period: 'Période', role: 'Mon rôle', type: 'Type', stack: 'Compétences & outils',
       replyTime: 'Réponse sous 24 à 48 h', replyLangs: 'Français · English · العربية', followMe: 'Me suivre',
-      certExp: 'Expire', proofs: 'Liens & preuves', verify: 'Vérifier', credlyAll: 'Voir sur Credly', certId: 'ID', certAll: 'Voir les {n} certifications', certLess: 'Réduire',
+      cookies: 'Cookies', phoneReq: 'Communiqué sur demande', phoneAsk: 'Demander', phoneSubj: 'Demande de numéro de téléphone', phoneMsg: 'Bonjour Mohammed,\n\nJe souhaiterais vous appeler au sujet de : …\n\nSociété / poste : …\nCréneau souhaité : …\n\nMerci de me transmettre votre numéro.', certExp: 'Expire', proofs: 'Liens & preuves', verify: 'Vérifier', credlyAll: 'Voir sur Credly', certId: 'ID', certAll: 'Voir les {n} certifications', certLess: 'Réduire',
       cvTitle: 'Mon CV complet', cvText: 'Toutes mes expériences, certifications et compétences sur une page, prêtes à télécharger.', focusOn: 'Domaines clés',
       prev: 'Projet précédent', next: 'Projet suivant', similar: 'Vous avez un projet similaire ?', letsTalk: 'Parlons-en', toTop: 'Haut de page'
     },
@@ -40,7 +40,7 @@ if (window.top !== window.self) { document.documentElement.style.display = 'none
       copy: 'Copy', copied: 'Copied ✓', rights: 'All rights reserved.', poweredBy: 'Freelancing with',
       overview: 'Overview', context: 'Context', did: 'What I did', results: 'Deliverables & results', client: 'Client / context', period: 'Period', role: 'My role', type: 'Type', stack: 'Skills & tools',
       replyTime: 'Reply within 24–48 h', replyLangs: 'Français · English · العربية', followMe: 'Follow me',
-      certExp: 'Expires', proofs: 'Links & proof', verify: 'Verify', credlyAll: 'View on Credly', certId: 'ID', certAll: 'Show all {n} certifications', certLess: 'Show less',
+      cookies: 'Cookies', phoneReq: 'Shared on request', phoneAsk: 'Request', phoneSubj: 'Phone number request', phoneMsg: 'Hello Mohammed,\n\nI would like to call you about: …\n\nCompany / role: …\nPreferred time: …\n\nCould you please send me your phone number?', certExp: 'Expires', proofs: 'Links & proof', verify: 'Verify', credlyAll: 'View on Credly', certId: 'ID', certAll: 'Show all {n} certifications', certLess: 'Show less',
       cvTitle: 'My full resume', cvText: 'All my experience, certifications and skills on one page, ready to download.', focusOn: 'Key areas',
       prev: 'Previous project', next: 'Next project', similar: 'Have a similar project?', letsTalk: "Let's talk", toTop: 'Back to top'
     }
@@ -288,7 +288,7 @@ if (window.top !== window.self) { document.documentElement.style.display = 'none
       '<div class="ct"><div class="ct-l rv">' + (P.available ? '<p class="ct-av"><i></i><span>' + E(P.availability) + '</span></p>' : '') + '<ul class="ci">' +
         item('mail', u('email'), '<a href="mailto:' + esc(P.email) + '">' + mail() + '</a>', P.email) +
         ((P.pgp || PREVIEW) ? item('lock', u('pgp'), P.pgp ? '<a href="' + esc(P.pgp) + '" download>pgp.asc</a>' : '<span class="muted">' + u('toAdd') + '</span>', P.pgp || 'x') : '') +
-        (P.phone ? item('phone', u('phone'), '<a href="tel:' + esc(P.phone_href) + '">' + esc(P.phone) + '</a>', P.phone) : '') +
+        (P.phone ? item('phone', u('phone'), '<a href="tel:' + esc(P.phone_href) + '">' + esc(P.phone) + '</a>', P.phone) : (P.phoneOnRequest ? '<li>' + ic('phone') + '<div><small>' + u('phone') + '</small><b>' + u('phoneReq') + '</b></div><button type="button" class="ph-req" data-phone-req>' + u('phoneAsk') + ic('arrow-right') + '</button></li>' : '')) +
         item('linkedin', 'LinkedIn', '<a href="' + esc(P.linkedin) + '" target="_blank" rel="noopener">' + esc(P.linkedin_label) + '</a>') +
         item('pin', u('based'), E(P.location)) + '</ul>' +
         '<div class="ct-meta"><span>' + ic('calendar') + u('replyTime') + '</span><span>' + ic('langs') + u('replyLangs') + '</span></div>' +
@@ -303,7 +303,7 @@ if (window.top !== window.self) { document.documentElement.style.display = 'none
     return '<footer class="foot"><div class="wrap foot-in">' +
       '<a class="foot-brand" href="' + esc(P.website) + '" target="_blank" rel="noopener"><small>' + u('poweredBy') + '</small><img class="lg-l" src="assets/img/gestop-logo.webp" alt="GesTop Business & Services" loading="lazy"><img class="lg-d" src="assets/img/gestop-logo-light.webp" alt="" loading="lazy"></a>' +
       '<p class="foot-name">' + esc(P.name) + '</p>' + socials('soc') +
-      '<p class="foot-c">© ' + new Date().getFullYear() + ' ' + esc(P.name) + ' · GesTop.ma — ' + u('rights') + '</p>' +
+      '<p class="foot-c">© ' + new Date().getFullYear() + ' ' + esc(P.name) + ' · GesTop.ma — ' + u('rights') + ((D.analytics && D.analytics.ga4) ? ' · <button type="button" class="foot-ck" data-consent-open>' + u('cookies') + '</button>' : '') + '</p>' +
       '</div></footer><a class="totop" href="#home" aria-label="' + u('toTop') + '">' + ic('arrow-up') + '</a>';
   }
 
@@ -374,6 +374,13 @@ if (window.top !== window.self) { document.documentElement.style.display = 'none
     bindCerts();
     var q = $('[data-q]', app); q.oninput = function () { state.query = q.value; $('[data-grid]').innerHTML = cards(); };
     $('[data-grid]', app).onclick = function (e) { var m = e.target.closest ? e.target.closest('[data-proj-more],[data-proj-less]') : null; if (!m) return; state.projAll = m.hasAttribute('data-proj-more'); this.innerHTML = cards(); if (!state.projAll) { var w = document.getElementById('work'); if (w && w.scrollIntoView) w.scrollIntoView({ behavior: 'smooth', block: 'start' }); } };
+    var pr = $('[data-phone-req]', app); if (pr) pr.onclick = function () {
+      var fm = $('[data-form]', app); if (!fm) return;
+      fm.elements.subject.value = u('phoneSubj');
+      if (!fm.elements.message.value.trim()) fm.elements.message.value = u('phoneMsg');
+      fm.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      setTimeout(function () { fm.elements.name.focus({ preventScroll: true }); }, reduce ? 0 : 450);
+    };
     var f = $('[data-form]', app), started = Date.now(), token = '', tsId = null, tsReady = false, tsRan = false, sending = false, file = null;
     var st = $('[data-status]', f), box = $('[data-ts]', f), bot = $('[data-bot]', f);
     var dz = $('[data-drop]', f), fin = $('[data-file]', f), dl = $('[data-droplist]', f);

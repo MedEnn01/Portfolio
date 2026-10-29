@@ -31,10 +31,21 @@ if ((js.match(/\bfetch\s*\(/g) || []).length > 1) fail('app.js : plus d\'un appe
 if (csp) {
   const dir = n => ((csp.match(new RegExp('(?:^|;)\\s*' + n + '\\s+([^;]*)')) || [])[1] || '').split(/\s+/).filter(x => /^https?:/.test(x));
   const only = (n, ok) => dir(n).forEach(h => { if (!ok.includes(h)) fail('CSP ' + n + ' : hôte non autorisé ' + h); });
-  only('script-src', ['https://challenges.cloudflare.com']);
+  /* liste blanche : Turnstile, Apps Script (formulaire), Google Analytics 4 (après consentement), Cloudflare Web Analytics */
+  const GA = ['https://www.googletagmanager.com', 'https://*.googletagmanager.com', 'https://*.google-analytics.com', 'https://*.analytics.google.com'];
+  only('script-src', ['https://challenges.cloudflare.com', 'https://www.googletagmanager.com', 'https://static.cloudflareinsights.com']);
   only('frame-src', ['https://challenges.cloudflare.com']);
-  only('connect-src', ['https://script.google.com', 'https://script.googleusercontent.com']);
-  ['style-src', 'img-src', 'font-src', 'default-src', 'object-src'].forEach(n => { if (dir(n).length) fail('CSP ' + n + ' : hôte externe interdit'); });
+  only('connect-src', ['https://script.google.com', 'https://script.googleusercontent.com', 'https://cloudflareinsights.com'].concat(GA));
+  only('img-src', GA);
+  ['style-src', 'font-src', 'default-src', 'object-src'].forEach(n => { if (dir(n).length) fail('CSP ' + n + ' : hôte externe interdit'); });
+  ['upgrade-insecure-requests', "form-action 'self'", "object-src 'none'", "base-uri 'self'"].forEach(d => { if (!csp.includes(d)) fail('CSP : directive manquante « ' + d + ' »'); });
+}
+if (exists('assets/analytics.js')) {
+  const an = read('assets/analytics.js');
+  if (/\beval\s*\(|new Function\s*\(|document\.write\s*\(|XMLHttpRequest|\bfetch\s*\(/.test(an)) fail('analytics.js : appel interdit (eval/fetch/XHR/document.write)');
+  const srcs = (an.match(/https:\/\/[a-z0-9.-]+/gi) || []);
+  srcs.forEach(h => { if (!['https://static.cloudflareinsights.com', 'https://www.googletagmanager.com'].includes(h)) fail('analytics.js : hôte non autorisé ' + h); });
+  if (!/analytics_storage:\s*'denied'/.test(an)) fail('analytics.js : le consentement par défaut doit être « denied »');
 }
 const blank = (js.match(/target="_blank"/g) || []).length, noop = (js.match(/rel="noopener/g) || []).length;
 if (blank > noop) warn('app.js : ' + blank + ' liens target=_blank pour ' + noop + ' rel=noopener');

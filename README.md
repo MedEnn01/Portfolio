@@ -1,6 +1,6 @@
 # Portfolio — Mohammed Ennouaim (Ingénieur en Cybersécurité)
 
-Site statique bilingue (FR/EN), sans dépendance, sans cookie, sans statistiques. Formulaire de contact optionnel avec anti-robot (voir `backend/README.md`). Adresse actuelle : https://medenn01.github.io/Portfolio/ (domaine `ennouaim.com` prévu plus tard)
+Site statique bilingue (FR/EN), sans dépendance. Statistiques : Cloudflare Web Analytics (sans cookie) et Google Analytics 4 chargé **uniquement après consentement** (voir « Statistiques » plus bas). Formulaire de contact optionnel avec anti-robot (voir `backend/README.md`). Adresse : https://ennouaim.com/ (GitHub Pages, derrière Cloudflare — voir `GUIDE-CLOUDFLARE-ANALYTICS.md`)
 
 ## Mode brouillon (`showDrafts`)
 Dans `assets/data.js`, `"showDrafts": true` affiche les brouillons, les profils vides, les scores d'exemple « (exemple) » et un bandeau orange. **Avant de publier, passe-le à `false` et remplace les exemples**, puis lance `node tools/check.js --publish` : il échoue tant qu'il reste du contenu d'exemple.
@@ -32,6 +32,12 @@ Tout le contenu est dans `assets/data.js` (projets, certifications, compétences
 - **Actions** : *Settings > Actions > General* → permissions du jeton en **Read only** ; autoriser seulement les actions de GitHub.
 - Le workflow `.github/workflows/checks.yml` épingle les actions par empreinte (SHA) ; Dependabot propose les mises à jour.
 
+## Statistiques
+Dans `assets/data.js` → `"analytics"` :
+- `"cloudflare"` : jeton Cloudflare Web Analytics (32 caractères). Sans cookie, aucune bannière.
+- `"ga4"` : identifiant Google Analytics 4 (`G-XXXXXXXXXX`). Une bannière FR/EN demande l'accord du visiteur ; GA4 n'est chargé qu'après « Accepter » (Consent Mode : refus par défaut, signaux Google et publicité désactivés). Le lien « Cookies » du pied de page permet de changer d'avis (les cookies `_ga` sont alors supprimés).
+Valeur vide = rien n'est chargé. Le code est dans `assets/analytics.js`.
+
 ## Formulaire de contact
 Voir `backend/README.md` (Turnstile + Google Apps Script sur un Gmail dédié). Tant que `contactForm` est vide dans `assets/data.js`, le site n'appelle aucun service externe.
 
@@ -41,5 +47,5 @@ Si tu modifies le script inline de `index.html`, `node tools/check.js` te donne 
 `security.txt` et `robots.txt` ne sont lus qu'à la **racine d'un domaine** : sur `github.io/Portfolio/` ils sont ignorés, ils deviendront utiles avec `ennouaim.com`.
 
 ## Données personnelles
-Le téléphone n'apparaît ni sur le site ni dans les CV publiés. Avant tout nouveau dépôt de CV ou de certificats, vérifie qu'ils ne contiennent ni adresse ni téléphone.
+Le téléphone n'apparaît ni sur le site ni dans les CV publiés. Avec `"phoneOnRequest": true` (dans `person`, `assets/data.js`), la carte Contact affiche « Téléphone : communiqué sur demande » + un bouton **Demander** qui pré-remplit le formulaire (sujet « Demande de numéro de téléphone ») : tu réponds par email à qui tu veux. Mettre `false` pour masquer la ligne. Avant tout nouveau dépôt de CV ou de certificats, vérifie qu'ils ne contiennent ni adresse ni téléphone.
 Voir `LICENSE` et `THIRD_PARTY_NOTICES.md`.

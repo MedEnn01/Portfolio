@@ -17,6 +17,9 @@
      "expires" optionnel, "id" = numéro de credential, "domain" = id de "certDomains".
    "stats" : pensez à mettre à jour les chiffres si vous ajoutez projets/certifs.
 
+   "analytics" : "ga4" = ID Google Analytics « G-XXXXXXXXXX » (bannière de consentement
+     automatique), "cloudflare" = jeton Cloudflare Web Analytics (sans cookie). Vide = désactivé.
+
    "timeline" : kind = "job" | "internship" | "education".
    "hero.roles" : les titres qui défilent dans l'en-tête.
    "hero.orbit" : les 6 badges qui tournent autour du bouclier (icône + texte).
@@ -25,6 +28,10 @@
    target, rocket, layers, buildings, clipboard, widget, star.
    ========================================================== */
 window.PORTFOLIO = {
+  "analytics": {
+    "ga4": "",
+    "cloudflare": ""
+  },
   "contactForm": {
     "endpoint": "",
     "siteKey": ""
@@ -34,6 +41,7 @@ window.PORTFOLIO = {
     "email": "ennouaim159@gmail.com",
     "phone": "",
     "phone_href": "",
+    "phoneOnRequest": true,
     "linkedin": "https://www.linkedin.com/in/med-ennouaim/",
     "linkedin_label": "linkedin.com/in/med-ennouaim",
     "website": "https://www.gestop.ma",
